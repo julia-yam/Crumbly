@@ -1,12 +1,12 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { Header } from './header/header';
+import { RecipeList } from './recipe-list/recipe-list';
+import { Footer } from './footer/footer';
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [Header, RecipeList, Footer],
   selector: 'app-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',
 })
-export class App {
-  protected readonly title = signal('Crumbly');
-}
+export class App {}
