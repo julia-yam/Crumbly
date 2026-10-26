@@ -1,87 +1,31 @@
 <section class="recipes" aria-labelledby="recipes-title">
   <div class="container">
     <div class="recipes__intro">
-      <p class="recipes__eyebrow">
-        Щепотка вдохновения на каждый день
-        <span aria-hidden="true">♡</span>
-      </p>
+      @let total = recipes.length;
 
       <h1 id="recipes-title" class="recipes__title">
-        Что-нибудь вкусненькое?
-        <span class="recipes__strawberry" aria-hidden="true">🍓</span>
+        Мои рецепты <span class="recipes__count">{{ total }}</span>
       </h1>
 
-      <p class="recipes__description">
-        Любимые рецепты для уютных завтраков и тёплых вечеров
-      </p>
+      <p class="recipes__description">Любимые рецепты для уютных завтраков и тёплых вечеров</p>
     </div>
 
     <div class="recipes__grid">
-      <article class="recipe-card">
-        <img
-          class="recipe-card__image"
-          src="images/syrniki.png"
-          alt="Румяные сырники с клубникой и сметаной"
-          width="600"
-          height="480"
-        />
+      @for (recipe of recipes; track recipe.id) {
+        <article class="recipe-card">
+          <div class="recipe-card__image" aria-hidden="true"></div>
 
-        <div class="recipe-card__content">
-          <span class="recipe-card__category">Завтрак</span>
+          <div class="recipe-card__content">
+            <span class="recipe-card__label">Любимый рецепт ♡</span>
 
-          <h2 class="recipe-card__title">Сырники с ягодами</h2>
-
-          <p class="recipe-card__details">
-            <span>25 минут</span>
-            <span aria-hidden="true">·</span>
-            <span>2 порции</span>
-          </p>
-        </div>
-      </article>
-
-      <article class="recipe-card">
-        <img
-          class="recipe-card__image"
-          src="images/pasta.png"
-          alt="Паста в сливочном соусе с помидорами и базиликом"
-          width="600"
-          height="480"
-        />
-
-        <div class="recipe-card__content">
-          <span class="recipe-card__category">Обед</span>
-
-          <h2 class="recipe-card__title">Сливочная паста</h2>
-
-          <p class="recipe-card__details">
-            <span>30 минут</span>
-            <span aria-hidden="true">·</span>
-            <span>2 порции</span>
-          </p>
-        </div>
-      </article>
-
-      <article class="recipe-card">
-        <img
-          class="recipe-card__image"
-          src="images/apple-pie.png"
-          alt="Золотистый яблочный пирог с дольками яблок"
-          width="600"
-          height="480"
-        />
-
-        <div class="recipe-card__content">
-          <span class="recipe-card__category">Выпечка</span>
-
-          <h2 class="recipe-card__title">Яблочный пирог</h2>
-
-          <p class="recipe-card__details">
-            <span>50 минут</span>
-            <span aria-hidden="true">·</span>
-            <span>6 порций</span>
-          </p>
-        </div>
-      </article>
+            <h2 class="recipe-card__title">
+              {{ recipe.title }}
+            </h2>
+          </div>
+        </article>
+      } @empty {
+        <p class="recipes__empty">Рецептов пока нет. Добавьте первый рецепт! 🍓</p>
+      }
     </div>
   </div>
 </section>
