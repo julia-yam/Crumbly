@@ -6,6 +6,11 @@
   --color-accent: #bb4e59;
   --color-pink: #fce3e1;
   --color-border: #f3ceca;
+  --shadow-card: 0 12px 32px rgba(113, 58, 48, 0.07);
+  --shadow-card-hover: 0 18px 38px rgba(113, 58, 48, 0.12);
+  --radius-card: 20px;
+  --radius-control: 12px;
+  --transition: 180ms ease;
 }
 
 * {
@@ -13,6 +18,7 @@
 }
 
 body {
+  min-width: 320px;
   margin: 0;
   background: var(--color-background);
   color: var(--color-text);
@@ -22,6 +28,7 @@ body {
 
 h1,
 h2,
+h3,
 p {
   margin: 0;
 }
@@ -29,6 +36,18 @@ p {
 img {
   display: block;
   max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+select {
+  -webkit-tap-highlight-color: transparent;
 }
 
 .container {
@@ -39,5 +58,14 @@ img {
 @media (max-width: 600px) {
   .container {
     width: calc(100% - 32px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }

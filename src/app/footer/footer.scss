@@ -22,8 +22,8 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
-    min-height: 80px;
-    padding-block: 18px;
+    min-height: 64px;
+    padding-block: 14px;
     text-align: center;
   }
 
@@ -33,6 +33,7 @@
   }
 
   p {
+    color: var(--color-muted);
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 15px;
     font-style: italic;

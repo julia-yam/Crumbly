@@ -1,5 +1,64 @@
 <app-header></app-header>
+
+<nav class="navigation" aria-label="Основная навигация">
+  <div class="container navigation__inner">
+    <button
+      type="button"
+      class="navigation__button"
+      [class.navigation__button--active]="currentPage === 'home'"
+      [disabled]="currentPage === 'home'"
+      (click)="currentPage = 'home'"
+    >
+      Главная
+    </button>
+
+    <button
+      type="button"
+      class="navigation__button"
+      [class.navigation__button--active]="currentPage === 'recipes'"
+      [disabled]="currentPage === 'recipes'"
+      (click)="currentPage = 'recipes'"
+    >
+      Рецепты
+    </button>
+
+    <button
+      type="button"
+      class="navigation__button"
+      [class.navigation__button--active]="currentPage === 'create'"
+      [disabled]="currentPage === 'create'"
+      (click)="currentPage = 'create'"
+    >
+      Добавить рецепт
+    </button>
+
+    <button
+      type="button"
+      class="navigation__button"
+      [class.navigation__button--active]="currentPage === 'details'"
+      [disabled]="currentPage === 'details'"
+      (click)="currentPage = 'details'"
+    >
+      Детали рецепта
+    </button>
+  </div>
+</nav>
+
 <main>
-  <app-recipe-list></app-recipe-list>
+  @switch (currentPage) {
+    @case ('home') {
+      <app-dashboard></app-dashboard>
+    }
+    @case ('recipes') {
+      <app-recipe-list></app-recipe-list>
+    }
+    @case ('create') {
+      <app-recipe-create></app-recipe-create>
+    }
+    @case ('details') {
+      <app-recipe-details></app-recipe-details>
+    }
+  }
 </main>
+
 <app-footer></app-footer>

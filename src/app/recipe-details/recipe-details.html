@@ -1,0 +1,65 @@
+<section class="recipe-details">
+  <div class="container">
+    <div class="recipe-details__intro">
+      <p class="recipe-details__label">Рецепт для уютного утра ♡</p>
+      <h1>Сырники с ягодами</h1>
+      <p class="recipe-details__description">
+        Нежные сырники с румяной корочкой, свежей клубникой и сметаной.
+      </p>
+    </div>
+
+    <div class="recipe-details__layout">
+      <div class="recipe-details__photo">
+        <img
+          src="images/syrniki.png"
+          alt="Румяные сырники с клубникой и сметаной"
+          width="600"
+          height="480"
+        />
+
+        <div class="recipe-details__info">
+          <span>⏱ 25 минут</span>
+          <span>🍽 2 порции</span>
+          <span>🍓 Завтрак</span>
+        </div>
+      </div>
+
+      <div class="recipe-details__content">
+        <button
+          type="button"
+          class="favorite-button"
+          [class.favorite-button--active]="isFavorite"
+          (click)="isFavorite = !isFavorite"
+        >
+          @if (isFavorite) {
+            ❤️ В избранном
+          } @else {
+            🤍 Добавить в избранное
+          }
+        </button>
+        <article class="details-card">
+          <h2>Ингредиенты</h2>
+
+          <ul>
+            <li>Творог — 200 г</li>
+            <li>Яйцо — 1 шт.</li>
+            <li>Мука — 2 ст. л.</li>
+            <li>Сахар — по вкусу</li>
+            <li>Клубника и сметана — для подачи</li>
+          </ul>
+        </article>
+
+        <article class="details-card">
+          <h2>Приготовление</h2>
+
+          <ol>
+            <li>Смешай творог, яйцо, муку и сахар.</li>
+            <li>Сформируй небольшие сырники.</li>
+            <li>Обжарь их с двух сторон до золотистой корочки.</li>
+            <li>Подавай с клубникой и сметаной.</li>
+          </ol>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

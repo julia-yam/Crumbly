@@ -1,0 +1,68 @@
+<section class="create-recipe">
+  <div class="container">
+    <div class="create-recipe__intro">
+      <p class="create-recipe__label">Твоя книга рецептов ♡</p>
+
+      <h1>Добавить рецепт</h1>
+
+      <p class="create-recipe__description">
+        Запиши идею блюда, чтобы не забыть её.
+      </p>
+    </div>
+
+    <div class="recipe-form">
+      <h2>Расскажи о блюде</h2>
+
+      <div class="recipe-form__field">
+        <label for="recipe-title">Название рецепта</label>
+        <input
+          id="recipe-title"
+          type="text"
+          placeholder="Например, сырники с ягодами"
+        />
+      </div>
+
+      <div class="recipe-form__field">
+        <label for="recipe-category">Категория</label>
+        <select id="recipe-category">
+          <option value="">Выбери категорию</option>
+          <option value="breakfast">Завтрак</option>
+          <option value="lunch">Обед</option>
+          <option value="dinner">Ужин</option>
+          <option value="baking">Выпечка</option>
+        </select>
+      </div>
+
+      <div class="recipe-form__field">
+        <label for="recipe-description">Немного о рецепте</label>
+        <textarea
+          id="recipe-description"
+          rows="4"
+          placeholder="Чем тебе нравится это блюдо?"
+        ></textarea>
+      </div>
+
+      <div class="recipe-form__field">
+        <label for="recipe-ingredients">Ингредиенты</label>
+        <textarea
+          id="recipe-ingredients"
+          rows="4"
+          placeholder="Например: творог, яйцо, мука..."
+        ></textarea>
+      </div>
+
+      <div class="recipe-form__field">
+        <label for="recipe-steps">Приготовление</label>
+        <textarea
+          id="recipe-steps"
+          rows="5"
+          placeholder="Опиши, как приготовить блюдо"
+        ></textarea>
+      </div>
+
+      <button type="button" class="recipe-form__button">
+        Сохранить рецепт
+      </button>
+    </div>
+  </div>
+</section>
