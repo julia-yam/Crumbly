@@ -10,6 +10,7 @@
   --shadow-card-hover: 0 18px 38px rgba(113, 58, 48, 0.12);
   --radius-card: 20px;
   --radius-control: 12px;
+  --radius-pill: 999px;
   --transition: 180ms ease;
 }
 
@@ -38,16 +39,15 @@ img {
   max-width: 100%;
 }
 
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
 button,
 input,
 select,
 textarea {
   font: inherit;
-}
-
-button,
-select {
-  -webkit-tap-highlight-color: transparent;
 }
 
 .container {

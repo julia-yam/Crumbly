@@ -82,15 +82,20 @@
   }
 
   .favorite-button {
-    margin-top: 4px;
+    justify-self: start;
+    margin: 0;
     padding: 12px 20px;
     border: 1px solid var(--color-border);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     background: var(--color-card);
     color: var(--color-text);
     font-size: 14px;
     cursor: pointer;
-    transition: background-color var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+    transition:
+      background-color var(--transition),
+      border-color var(--transition),
+      color var(--transition),
+      transform var(--transition);
 
     &:hover {
       background: var(--color-pink);
@@ -104,8 +109,9 @@
 
     &--active {
       border-color: var(--color-accent);
-      background: var(--color-pink);
-      color: var(--color-accent);
+      background: var(--color-accent);
+      color: white;
+      box-shadow: 0 5px 12px rgba(187, 78, 89, 0.18);
     }
   }
 }
@@ -152,5 +158,9 @@
 
   .details-card {
     padding: 18px;
+  }
+
+  .recipe-details .favorite-button {
+    justify-self: stretch;
   }
 }

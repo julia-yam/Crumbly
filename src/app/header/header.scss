@@ -39,7 +39,9 @@
   font-weight: 700;
   letter-spacing: -0.055em;
   text-decoration: none;
-  transition: color var(--transition), transform var(--transition);
+  transition:
+    color var(--transition),
+    transform var(--transition);
 
   &:hover {
     color: #9e3d49;

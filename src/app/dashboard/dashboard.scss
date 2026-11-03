@@ -54,7 +54,9 @@
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
   text-align: center;
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
 
   &:hover {
     box-shadow: var(--shadow-card-hover);

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Header } from './header/header';
 import { Footer } from './footer/footer';
 import { Dashboard } from './dashboard/dashboard';
@@ -20,5 +20,5 @@ import { RecipeDetails } from './recipe-details/recipe-details';
   templateUrl: './app.html',
 })
 export class App {
-  currentPage = 'home';
+  protected readonly currentPage = signal('home');
 }

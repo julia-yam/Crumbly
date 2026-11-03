@@ -1,30 +1,61 @@
 <section class="recipes" aria-labelledby="recipes-title">
   <div class="container">
     <div class="recipes__intro">
-      @let total = recipes.length;
-
       <h1 id="recipes-title" class="recipes__title">
-        Мои рецепты <span class="recipes__count">{{ total }}</span>
+        Мои рецепты
+        <span class="recipes__count">{{ totalCount() }}</span>
       </h1>
 
-      <p class="recipes__description">Любимые рецепты для уютных завтраков и тёплых вечеров</p>
+      <p class="recipes__favorites-count">В избранном: {{ favoriteCount() }}</p>
+
+      <button
+        type="button"
+        class="filter-button"
+        [class.filter-button--active]="showOnlyFavorites()"
+        [attr.aria-pressed]="showOnlyFavorites()"
+        (click)="showOnlyFavorites.set(!showOnlyFavorites())"
+      >
+        Только избранное ♡
+      </button>
     </div>
 
     <div class="recipes__grid">
-      @for (recipe of recipes; track recipe.id) {
+      @for (recipe of visibleRecipes(); track recipe.id) {
         <article class="recipe-card">
-          <div class="recipe-card__image" aria-hidden="true"></div>
-
+          <img
+            class="recipe-card__image"
+            [src]="recipe.image"
+            [alt]="recipe.title"
+            width="600"
+            height="480"
+          />
           <div class="recipe-card__content">
-            <span class="recipe-card__label">Любимый рецепт ♡</span>
-
             <h2 class="recipe-card__title">
               {{ recipe.title }}
             </h2>
+            <button
+              type="button"
+              class="favorite-button"
+              [class.favorite-button--active]="recipe.isFavorite"
+              [attr.aria-pressed]="recipe.isFavorite"
+              (click)="toggleFavorite(recipe.id)"
+            >
+              @if (recipe.isFavorite) {
+                ❤️ В избранном
+              } @else {
+                🤍 Добавить в избранное
+              }
+            </button>
           </div>
         </article>
       } @empty {
-        <p class="recipes__empty">Рецептов пока нет. Добавьте первый рецепт! 🍓</p>
+        <p class="recipes__empty">
+          @if (showOnlyFavorites()) {
+            В избранном пока пусто. Отметь понравившийся рецепт сердечком ♡
+          } @else {
+            Рецептов пока нет. Добавьте первый рецепт! 🍓
+          }
+        </p>
       }
     </div>
   </div>

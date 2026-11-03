@@ -5,9 +5,9 @@
     <button
       type="button"
       class="navigation__button"
-      [class.navigation__button--active]="currentPage === 'home'"
-      [disabled]="currentPage === 'home'"
-      (click)="currentPage = 'home'"
+      [class.navigation__button--active]="currentPage() === 'home'"
+      [disabled]="currentPage() === 'home'"
+      (click)="currentPage.set('home')"
     >
       Главная
     </button>
@@ -15,9 +15,9 @@
     <button
       type="button"
       class="navigation__button"
-      [class.navigation__button--active]="currentPage === 'recipes'"
-      [disabled]="currentPage === 'recipes'"
-      (click)="currentPage = 'recipes'"
+      [class.navigation__button--active]="currentPage() === 'recipes'"
+      [disabled]="currentPage() === 'recipes'"
+      (click)="currentPage.set('recipes')"
     >
       Рецепты
     </button>
@@ -25,9 +25,9 @@
     <button
       type="button"
       class="navigation__button"
-      [class.navigation__button--active]="currentPage === 'create'"
-      [disabled]="currentPage === 'create'"
-      (click)="currentPage = 'create'"
+      [class.navigation__button--active]="currentPage() === 'create'"
+      [disabled]="currentPage() === 'create'"
+      (click)="currentPage.set('create')"
     >
       Добавить рецепт
     </button>
@@ -35,9 +35,9 @@
     <button
       type="button"
       class="navigation__button"
-      [class.navigation__button--active]="currentPage === 'details'"
-      [disabled]="currentPage === 'details'"
-      (click)="currentPage = 'details'"
+      [class.navigation__button--active]="currentPage() === 'details'"
+      [disabled]="currentPage() === 'details'"
+      (click)="currentPage.set('details')"
     >
       Детали рецепта
     </button>
@@ -45,7 +45,7 @@
 </nav>
 
 <main>
-  @switch (currentPage) {
+  @switch (currentPage()) {
     @case ('home') {
       <app-dashboard></app-dashboard>
     }
