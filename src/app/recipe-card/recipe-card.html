@@ -1,0 +1,26 @@
+<article class="recipe-card">
+  <img class="recipe-card__image" [src]="image()" [alt]="title()" />
+
+  <div class="recipe-card__content">
+    <h2 class="recipe-card__title">
+      {{ title() }}
+    </h2>
+
+    <div class="recipe-card__extra">
+      <ng-content></ng-content>
+    </div>
+
+    <button
+      type="button"
+      class="favorite-button"
+      [class.favorite-button--active]="isFavorite()"
+      (click)="favoriteToggle.emit()"
+    >
+      @if (isFavorite()) {
+        ❤️ В избранном
+      } @else {
+        🤍 Добавить в избранное
+      }
+    </button>
+  </div>
+</article>

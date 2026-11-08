@@ -8,46 +8,19 @@
 
       <p class="recipes__favorites-count">В избранном: {{ favoriteCount() }}</p>
 
-      <button
-        type="button"
-        class="filter-button"
-        [class.filter-button--active]="showOnlyFavorites()"
-        [attr.aria-pressed]="showOnlyFavorites()"
-        (click)="showOnlyFavorites.set(!showOnlyFavorites())"
-      >
-        Только избранное ♡
-      </button>
+      <app-favorite-filter [(showOnlyFavorites)]="showOnlyFavorites"></app-favorite-filter>
     </div>
 
     <div class="recipes__grid">
       @for (recipe of visibleRecipes(); track recipe.id) {
-        <article class="recipe-card">
-          <img
-            class="recipe-card__image"
-            [src]="recipe.image"
-            [alt]="recipe.title"
-            width="600"
-            height="480"
-          />
-          <div class="recipe-card__content">
-            <h2 class="recipe-card__title">
-              {{ recipe.title }}
-            </h2>
-            <button
-              type="button"
-              class="favorite-button"
-              [class.favorite-button--active]="recipe.isFavorite"
-              [attr.aria-pressed]="recipe.isFavorite"
-              (click)="toggleFavorite(recipe.id)"
-            >
-              @if (recipe.isFavorite) {
-                ❤️ В избранном
-              } @else {
-                🤍 Добавить в избранное
-              }
-            </button>
-          </div>
-        </article>
+        <app-recipe-card
+          [title]="recipe.title"
+          [image]="recipe.image"
+          [isFavorite]="recipe.isFavorite"
+          (favoriteToggle)="toggleFavorite(recipe.id)"
+        >
+          <p class="recipe-caption">Домашняя коллекция ♡</p>
+        </app-recipe-card>
       } @empty {
         <p class="recipes__empty">
           @if (showOnlyFavorites()) {

@@ -1,7 +1,9 @@
 import { Component, computed, effect, signal } from '@angular/core';
+import { RecipeCard } from '../recipe-card/recipe-card';
+import { FavoriteFilter } from '../favorite-filter/favorite-filter';
 
 @Component({
-  imports: [],
+  imports: [RecipeCard, FavoriteFilter],
   selector: 'app-recipe-list',
   styleUrl: './recipe-list.scss',
   templateUrl: './recipe-list.html',
