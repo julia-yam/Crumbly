@@ -11,4 +11,7 @@ export class RecipeCard {
   public readonly image = input.required<string>();
   public readonly isFavorite = input(false);
   public readonly favoriteToggle = output<void>();
+
+  public readonly removeRecipe = output<void>();
+
 }

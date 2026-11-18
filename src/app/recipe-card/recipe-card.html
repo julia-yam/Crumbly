@@ -10,17 +10,27 @@
       <ng-content></ng-content>
     </div>
 
-    <button
-      type="button"
-      class="favorite-button"
-      [class.favorite-button--active]="isFavorite()"
-      (click)="favoriteToggle.emit()"
-    >
-      @if (isFavorite()) {
-        ❤️ В избранном
-      } @else {
-        🤍 Добавить в избранное
-      }
-    </button>
+    <div class="recipe-card__actions">
+      <button
+        type="button"
+        class="favorite-button"
+        [class.favorite-button--active]="isFavorite()"
+        (click)="favoriteToggle.emit()"
+      >
+        @if (isFavorite()) {
+          ❤️ В избранном
+        } @else {
+          🤍 В избранное
+        }
+      </button>
+      <button
+        type="button"
+        class="delete-button"
+        (click)="removeRecipe.emit()"
+        aria-label="Удалить рецепт {{ title() }}"
+      >
+        Удалить
+      </button>
+    </div>
   </div>
 </article>

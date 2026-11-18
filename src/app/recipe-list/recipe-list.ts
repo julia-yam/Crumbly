@@ -1,48 +1,30 @@
-import { Component, computed, effect, signal } from '@angular/core';
+import { Component, computed, inject, effect } from '@angular/core';
 import { RecipeCard } from '../recipe-card/recipe-card';
-import { FavoriteFilter } from '../favorite-filter/favorite-filter';
+import { RecipeService } from '../services/recipe.service';
 
+export interface Recipe {
+  id: number;
+  title: string;
+  isFavorite: boolean;
+  image: string;
+}
 @Component({
-  imports: [RecipeCard, FavoriteFilter],
+  imports: [RecipeCard],
   selector: 'app-recipe-list',
   styleUrl: './recipe-list.scss',
   templateUrl: './recipe-list.html',
 })
 export class RecipeList {
-  protected recipes = signal([
-    {
-      id: 1,
-      title: 'Румяные сырники с клубникой и сметаной',
-      isFavorite: false,
-      image: 'images/syrniki.png',
-    },
-    {
-      id: 2,
-      title: 'Паста в сливочном соусе с помидорами и базиликом',
-      isFavorite: false,
-      image: 'images/pasta.png',
-    },
-    {
-      id: 3,
-      title: 'Яблочный пирог',
-      isFavorite: false,
-      image: 'images/apple-pie.png',
-    },
-  ]);
+  private readonly recipeService = inject(RecipeService);
 
-  protected readonly showOnlyFavorites = signal(false);
-
+  protected recipes = this.recipeService.recipes;
   protected readonly totalCount = computed(() => this.recipes().length);
 
-  protected readonly favoriteCount = computed(
-    () => this.recipes().filter((recipe) => recipe.isFavorite).length,
-  );
+  protected readonly favoriteCount = this.recipeService.favoriteCount;
 
-  protected readonly visibleRecipes = computed(() =>
-    this.showOnlyFavorites()
-      ? this.recipes().filter((recipe) => recipe.isFavorite)
-      : this.recipes(),
-  );
+  protected readonly removeRecipe = (id: number): void => {
+    this.recipeService.removeRecipe(id);
+  }
 
   constructor() {
     effect(() => {
@@ -51,10 +33,7 @@ export class RecipeList {
   }
 
   protected toggleFavorite(id: number): void {
-    this.recipes.update((recipes) =>
-      recipes.map((recipe) =>
-        recipe.id === id ? { ...recipe, isFavorite: !recipe.isFavorite } : recipe,
-      ),
-    );
+    this.recipeService.toggleFavorite(id);
   }
+
 }

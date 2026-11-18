@@ -3,10 +3,78 @@
     <a class="logo" href="./" aria-label="Crumbly — главная">
       crumbly
     </a>
-
-    <p class="header__caption">
-      Твоя домашняя книга рецептов
-      <span class="header__heart" aria-hidden="true">♡</span>
-    </p>
   </div>
+
+  <nav class="header__navigation" aria-label="Основная навигация">
+    <div class="container header__navigation-inner">
+      <button
+        type="button"
+        class="header__navigation-button"
+        [class.header__navigation-button--active]="currentPage() === 'home'"
+        [disabled]="currentPage() === 'home'"
+        (click)="pageChange.emit('home')"
+      >
+        Главная
+      </button>
+
+      <button
+        type="button"
+        class="header__navigation-button"
+        [class.header__navigation-button--active]="currentPage() === 'recipes'"
+        [disabled]="currentPage() === 'recipes'"
+        (click)="pageChange.emit('recipes')"
+      >
+        Рецепты
+      </button>
+
+      <button
+        type="button"
+        class="header__navigation-button"
+        [class.header__navigation-button--active]="currentPage() === 'favorite'"
+        [disabled]="currentPage() === 'favorite'"
+        (click)="pageChange.emit('favorite')"
+      >
+        Избранное
+      </button>
+
+      <button
+        type="button"
+        class="header__navigation-button"
+        [class.header__navigation-button--active]="currentPage() === 'create'"
+        [disabled]="currentPage() === 'create'"
+        (click)="pageChange.emit('create')"
+      >
+        Добавить рецепт
+      </button>
+
+      <button
+        type="button"
+        class="header__navigation-button"
+        [class.header__navigation-button--active]="currentPage() === 'details'"
+        [disabled]="currentPage() === 'details'"
+        (click)="pageChange.emit('details')"
+      >
+        Детали рецепта
+      </button>
+
+      <button
+        type="button"
+        class="header__navigation-button"
+        [class.header__navigation-button--active]="currentPage() === 'local-demo'"
+        [disabled]="currentPage() === 'local-demo'"
+        (click)="pageChange.emit('local-demo')"
+      >
+        Лаборатория
+      </button>
+      <button
+        type="button"
+        class="header__navigation-button"
+        [class.header__navigation-button--active]="currentPage() === 'second-demo'"
+        [disabled]="currentPage() === 'second-demo'"
+        (click)="pageChange.emit('second-demo')"
+      >
+        Лаборатория 2
+      </button>
+    </div>
+  </nav>
 </header>

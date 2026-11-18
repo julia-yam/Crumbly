@@ -5,29 +5,22 @@
         Мои рецепты
         <span class="recipes__count">{{ totalCount() }}</span>
       </h1>
-
-      <p class="recipes__favorites-count">В избранном: {{ favoriteCount() }}</p>
-
-      <app-favorite-filter [(showOnlyFavorites)]="showOnlyFavorites"></app-favorite-filter>
     </div>
 
     <div class="recipes__grid">
-      @for (recipe of visibleRecipes(); track recipe.id) {
+      @for (recipe of recipes(); track recipe.id) {
         <app-recipe-card
           [title]="recipe.title"
           [image]="recipe.image"
           [isFavorite]="recipe.isFavorite"
           (favoriteToggle)="toggleFavorite(recipe.id)"
+          (removeRecipe)="removeRecipe(recipe.id)"
         >
           <p class="recipe-caption">Домашняя коллекция ♡</p>
         </app-recipe-card>
       } @empty {
         <p class="recipes__empty">
-          @if (showOnlyFavorites()) {
-            В избранном пока пусто. Отметь понравившийся рецепт сердечком ♡
-          } @else {
             Рецептов пока нет. Добавьте первый рецепт! 🍓
-          }
         </p>
       }
     </div>

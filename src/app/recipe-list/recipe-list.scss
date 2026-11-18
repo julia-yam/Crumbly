@@ -75,11 +75,6 @@
   }
 }
 
-app-favorite-filter {
-  display: inline-block;
-  margin-top: 14px;
-}
-
 @media (max-width: 900px) {
   .recipes {
     &::before {
@@ -105,7 +100,4 @@ app-favorite-filter {
     }
   }
 
-  app-favorite-filter {
-    margin-top: 12px;
-  }
 }
