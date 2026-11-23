@@ -39,8 +39,89 @@ img {
   max-width: 100%;
 }
 
-button {
+button,
+a {
   -webkit-tap-highlight-color: transparent;
+}
+
+.pill-tabs {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 5px;
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  background: var(--color-card);
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    border-radius: var(--radius-pill);
+    color: var(--color-muted);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: color var(--transition), background-color var(--transition), box-shadow var(--transition);
+
+    &:hover {
+      background: var(--color-pink);
+      color: var(--color-accent);
+    }
+
+    &--active,
+    &--active:hover {
+      background: var(--color-accent);
+      color: white;
+      box-shadow: 0 3px 8px rgba(187, 78, 89, 0.16);
+    }
+  }
+
+  &--small &__link {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+}
+
+.action-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 22px;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: background-color var(--transition), color var(--transition);
+
+  &:hover {
+    background: #a9404c;
+  }
+
+  &--secondary {
+    border-color: var(--color-border);
+    background: var(--color-card);
+    color: var(--color-text);
+
+    &:hover {
+      background: var(--color-pink);
+      color: var(--color-accent);
+    }
+  }
+}
+
+.pill-tabs__link:focus-visible,
+.action-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
 button,

@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { RecipeCard } from '../recipe-card/recipe-card';
 import { RecipeService } from '../services/recipe.service';
 
@@ -10,6 +10,7 @@ import { RecipeService } from '../services/recipe.service';
 })
 export class FavoriteRecipes {
   private readonly recipeService = inject(RecipeService);
+  readonly sort = input<string>();
 
   protected readonly totalCount = computed(() => this.favoriteRecipes().length);
 
@@ -17,9 +18,12 @@ export class FavoriteRecipes {
     this.recipeService.removeRecipe(id);
   }
 
-  protected readonly favoriteRecipes = computed(() =>
-    this.recipeService.recipes().filter((recipe) => recipe.isFavorite),
-  );
+  protected readonly favoriteRecipes = computed(() => {
+    const recipes = this.recipeService.recipes().filter((recipe) => recipe.isFavorite);
+    return this.sort() === 'title'
+      ? recipes.sort((a, b) => a.title.localeCompare(b.title, 'ru'))
+      : recipes;
+  });
 
   protected toggleFavorite(id: number): void {
     this.recipeService.toggleFavorite(id);

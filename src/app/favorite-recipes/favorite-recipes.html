@@ -1,15 +1,10 @@
-<section class="favorite-recipes" aria-labelledby="favorite-recipes-title">
+<section class="favorite-recipes" aria-label="Избранные рецепты">
   <div class="container">
-    <div class="favorite__intro">
-      <h1 id="favorite-recipes-title" class="favorite-recipes__title">
-        Избранное
-        <span class="recipes__count">{{ totalCount() }}</span>
-      </h1>
-    </div>
 
     <div class="favorite-recipes__grid">
       @for (recipe of favoriteRecipes(); track recipe.id) {
         <app-recipe-card
+          [id]="recipe.id"
           [title]="recipe.title"
           [image]="recipe.image"
           [isFavorite]="recipe.isFavorite"

@@ -30,6 +30,9 @@
   }
 
   &__navigation-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 10px 16px;
     border: 1px solid transparent;
     border-radius: var(--radius-pill);
@@ -38,6 +41,8 @@
     font: inherit;
     font-size: 14px;
     font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
     cursor: pointer;
     transition:
       background-color var(--transition),
@@ -45,7 +50,7 @@
       border-color var(--transition),
       transform var(--transition);
 
-    &:hover:not(:disabled) {
+    &:hover:not(:disabled):not(.header__navigation-button--active) {
       background: var(--color-pink);
       color: var(--color-accent);
       transform: translateY(-1px);
@@ -62,6 +67,8 @@
     }
 
     &--active {
+      pointer-events: none;
+      cursor: default;
       border-color: var(--color-accent);
       background: var(--color-accent);
       color: white;

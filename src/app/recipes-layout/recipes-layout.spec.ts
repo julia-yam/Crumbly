@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RecipeLocalDemo } from './recipe-local-demo';
+import { RecipesLayout } from './recipes-layout';
 
-describe('RecipeLocalDemo', () => {
-  let component: RecipeLocalDemo;
-  let fixture: ComponentFixture<RecipeLocalDemo>;
+describe('RecipesLayout', () => {
+  let component: RecipesLayout;
+  let fixture: ComponentFixture<RecipesLayout>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RecipeLocalDemo],
+      imports: [RecipesLayout],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(RecipeLocalDemo);
+    fixture = TestBed.createComponent(RecipesLayout);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

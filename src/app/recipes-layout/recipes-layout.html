@@ -1,0 +1,30 @@
+<div class="container recipes-layout__header">
+  <h1 class="recipes-layout__title">{{ isFavorites() ? 'Избранное' : 'Мои рецепты' }}
+    <span class="recipes-layout__count">{{ count() }}</span>
+  </h1>
+<div class="recipes-layout__navigation">
+  <nav class="pill-tabs pill-tabs--small" aria-label="Разделы рецептов">
+    <a class="pill-tabs__link" routerLink="/recipes"
+      routerLinkActive="pill-tabs__link--active"
+      queryParamsHandling="preserve"
+      [routerLinkActiveOptions]="{ paths: 'exact', queryParams: 'ignored', matrixParams: 'ignored', fragment: 'ignored' }"
+      ariaCurrentWhenActive="page">Все рецепты</a>
+    <a class="pill-tabs__link" routerLink="/recipes/favorites"
+      queryParamsHandling="preserve"
+      routerLinkActive="pill-tabs__link--active"
+      ariaCurrentWhenActive="page">Избранное</a>
+  </nav>
+    <div class="recipes-layout__sort">
+      <span>Порядок:</span>
+      <nav class="pill-tabs pill-tabs--small" aria-label="Сортировка рецептов">
+        <a class="pill-tabs__link" [routerLink]="currentPath()"
+          [class.pill-tabs__link--active]="sort() !== 'title'"
+          [attr.aria-current]="sort() !== 'title' ? 'true' : null">Обычный порядок</a>
+        <a class="pill-tabs__link" [routerLink]="currentPath()" [queryParams]="{ sort: 'title' }"
+          [class.pill-tabs__link--active]="sort() === 'title'"
+          [attr.aria-current]="sort() === 'title' ? 'true' : null">По названию</a>
+      </nav>
+    </div>
+</div>
+</div>
+<router-outlet></router-outlet>

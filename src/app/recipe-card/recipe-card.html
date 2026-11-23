@@ -1,9 +1,13 @@
 <article class="recipe-card">
-  <img class="recipe-card__image" [src]="image()" [alt]="title()" />
+  <a class="recipe-card__image-link" [routerLink]="['/details', id()]">
+    <img class="recipe-card__image" [src]="image()" [alt]="title()" />
+  </a>
 
   <div class="recipe-card__content">
     <h2 class="recipe-card__title">
-      {{ title() }}
+      <a class="recipe-card__title-link" [routerLink]="['/details', id()]">
+        {{ title() }}
+      </a>
     </h2>
 
     <div class="recipe-card__extra">

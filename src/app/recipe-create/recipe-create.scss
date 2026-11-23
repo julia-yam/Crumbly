@@ -184,6 +184,11 @@
     color: white;
     font: inherit;
     cursor: pointer;
+    transition: background-color var(--transition);
+
+    &:hover {
+      background: #a9404c;
+    }
 
     &:focus-visible {
       outline: 2px solid var(--color-accent);

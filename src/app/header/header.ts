@@ -1,14 +1,10 @@
-import { Component, input, output } from '@angular/core';
-
-export type Page = 'home' | 'recipes' | 'create' | 'details' | 'favorite' | 'local-demo' | 'second-demo';
+import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
-  imports: [],
+  imports: [RouterLink, RouterLinkActive],
   selector: 'app-header',
   styleUrl: './header.scss',
   templateUrl: './header.html',
 })
-export class Header {
-  readonly currentPage = input.required<Page>();
-  readonly pageChange = output<Page>();
-}
+export class Header {}

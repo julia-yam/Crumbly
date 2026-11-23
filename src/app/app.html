@@ -1,32 +1,7 @@
-<app-header
-  [currentPage]="currentPage()"
-  (pageChange)="currentPage.set($event)"
-></app-header>
+<app-header></app-header>
 
 <main>
-  @switch (currentPage()) {
-    @case ('home') {
-      <app-dashboard></app-dashboard>
-    }
-    @case ('recipes') {
-      <app-recipe-list></app-recipe-list>
-    }
-    @case ('favorite') {
-      <app-favorite-recipes></app-favorite-recipes>
-    }
-    @case ('create') {
-      <app-recipe-create></app-recipe-create>
-    }
-    @case ('details') {
-      <app-recipe-details></app-recipe-details>
-    }
-    @case ('local-demo') {
-      <app-recipe-local-demo></app-recipe-local-demo>
-    }
-    @case ('second-demo') {
-      <app-recipe-second-demo></app-recipe-second-demo>
-    }
-  }
+  <router-outlet></router-outlet>
 </main>
 
 <app-footer></app-footer>
